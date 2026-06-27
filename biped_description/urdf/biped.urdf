@@ -1,0 +1,115 @@
+<?xml version="1.0"?>
+<robot name="biped_robot">
+
+  <link name="torso_link">
+    <visual>
+      <origin xyz="0 0 0.2" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.05" length="0.5"/>
+      </geometry>
+      <material name="blue"><color rgba="0.0 0.4 0.8 1.0"/></material>
+    </visual>
+  </link>
+
+  <joint name="left_hip_joint" type="revolute">
+    <parent link="torso_link"/>
+    <child link="left_thigh_link"/>
+    <origin xyz="0 0.1 0" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/> <limit lower="-1.57" upper="1.57" effort="10.0" velocity="1.0"/>
+  </joint>
+
+  <link name="left_thigh_link">
+    <visual>
+      <origin xyz="0 0 -0.15" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.02" length="0.3"/>
+      </geometry>
+      <material name="grey"><color rgba="0.6 0.6 0.6 1.0"/></material>
+    </visual>
+  </link>
+
+  <joint name="left_knee_joint" type="revolute">
+    <parent link="left_thigh_link"/>
+    <child link="left_shin_link"/>
+    <origin xyz="0 0 -0.3" rpy="0 0 0"/> <axis xyz="0 1 0"/>
+    <limit lower="0.0" upper="2.0" effort="10.0" velocity="1.0"/> </joint>
+
+  <link name="left_shin_link">
+    <visual>
+      <origin xyz="0 0 -0.15" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.015" length="0.3"/>
+      </geometry>
+      <material name="grey"/>
+    </visual>
+  </link>
+
+  <joint name="left_ankle_joint" type="revolute">
+    <parent link="left_shin_link"/>
+    <child link="left_foot_link"/>
+    <origin xyz="0 0 -0.3" rpy="0 0 0"/> <axis xyz="0 1 0"/>
+    <limit lower="-0.78" upper="0.78" effort="10.0" velocity="1.0"/>
+  </joint>
+
+  <link name="left_foot_link">
+    <visual>
+      <origin xyz="0.05 0 -0.01" rpy="0 0 0"/> <geometry>
+        <box size="0.15 0.06 0.02"/>
+      </geometry>
+      <material name="black"><color rgba="0.1 0.1 0.1 1.0"/></material>
+    </visual>
+  </link>
+
+
+  <joint name="right_hip_joint" type="revolute">
+    <parent link="torso_link"/>
+    <child link="right_thigh_link"/>
+    <origin xyz="0 -0.1 0" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-1.57" upper="1.57" effort="10.0" velocity="1.0"/>
+  </joint>
+
+  <link name="right_thigh_link">
+    <visual>
+      <origin xyz="0 0 -0.15" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.02" length="0.3"/>
+      </geometry>
+      <material name="grey"/>
+    </visual>
+  </link>
+
+  <joint name="right_knee_joint" type="revolute">
+    <parent link="right_thigh_link"/>
+    <child link="right_shin_link"/>
+    <origin xyz="0 0 -0.3" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="0.0" upper="2.0" effort="10.0" velocity="1.0"/>
+  </joint>
+
+  <link name="right_shin_link">
+    <visual>
+      <origin xyz="0 0 -0.15" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.015" length="0.3"/>
+      </geometry>
+      <material name="grey"/>
+    </visual>
+  </link>
+
+  <joint name="right_ankle_joint" type="revolute">
+    <parent link="right_shin_link"/>
+    <child link="right_foot_link"/>
+    <origin xyz="0 0 -0.3" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-0.78" upper="0.78" effort="10.0" velocity="1.0"/>
+  </joint>
+
+ <link name="right_foot_link">
+    <visual>
+      <origin xyz="0.05 0 -0.01" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.15 0.06 0.02"/>
+      </geometry>
+      <material name="black"/>
+    </visual> </link>     </robot>
